@@ -23,15 +23,15 @@ public abstract class Conta implements IConta {
     public Conta(Cliente cliente) {
         this.agencia = Conta.AGENCIA_PADRAO;
         this.numero = Conta.SEQUENCIAL++;
-        this.saldo = saldo;
+
         this.cliente = cliente;
-        this.limiteEmprestimo =  LIMITE_PADRAO;
+        this.limiteEmprestimo = LIMITE_PADRAO;
     }
 
     @Override
     public void sacar(double valor) {
         saldo -= valor;
-        if(saldo < 0){
+        if (saldo < 0) {
             JOptionPane.showMessageDialog(null, "Saldo Insuficiente");
             saldo += valor;
         }
@@ -75,7 +75,7 @@ public abstract class Conta implements IConta {
         this.saldo = saldo;
     }
 
-    protected void imprimirInfosComuns(){
+    protected void imprimirInfosComuns() {
         System.out.println(String.format("Cliente: %s", this.cliente.getNome()));
         System.out.println(String.format("Agência: %d", this.agencia));
         System.out.println(String.format("Num Conta: %d", this.numero));
